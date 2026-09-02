@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Solicitar prueba de concepto · Wai Group</title>
+<meta name="description" content="Reserva una demo personalizada de Wai para tu hotel. Te contactamos en menos de 24 horas.">
+<meta name="theme-color" content="#4A1FB8">
+<meta property="og:title" content="Solicitar prueba de concepto · Wai Group">
+<meta property="og:description" content="Reserva una demo personalizada de Wai. Te contactamos en menos de 24 horas.">
+<meta property="og:image" content="https://waigroup.es/assets/og-image.png">
+<meta property="og:url" content="https://waigroup.es/demo.html">
+<link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="./assets/favicon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #FAFAF7; --bg-alt: #FFFFFF; --ink: #0F0A28; --ink-70: #3D3556;
+    --grey: #5C5670; --grey-l: #9A93AC; --border: #E6E2F0; --border-strong: #D5CFE4;
+    --purple: #4A1FB8; --purple-l: #6B3EE0; --purple-tint: #F0E9FF; --lime: #DFF24C;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--ink)}
+  body{font-family:'Inter','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+  a{color:var(--purple);text-decoration:none;transition:color 0.15s}
+  a:hover{color:var(--purple-l)}
+  .mono{font-family:'JetBrains Mono',monospace}
+  .container{max-width:1160px;margin:0 auto;padding:0 32px}
+
+  /* NAV · idéntico al index */
+  .nav{position:sticky;top:0;background:rgba(250,250,247,0.85);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--border);z-index:100}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:16px 32px;max-width:1160px;margin:0 auto}
+  .nav-logo{display:flex;align-items:center;gap:14px}
+  .nav-logo img{height:88px;width:auto;display:block}
+  .nav-tagline{display:flex;flex-direction:column;line-height:1.15;border-left:2px solid var(--purple);padding-left:14px}
+  .nav-tagline .nav-brand{font-size:14px;font-weight:700;color:var(--ink);letter-spacing:-0.01em}
+  .nav-tagline .nav-slogan{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--grey);letter-spacing:0.03em;margin-top:2px}
+  .nav-links{display:flex;gap:28px;align-items:center}
+  .nav-links a{color:var(--ink-70);font-weight:500;font-size:14px}
+  .nav-links a:hover{color:var(--ink)}
+  .btn-outline{border:1px solid var(--border-strong);color:var(--ink) !important;font-weight:600;padding:10px 20px;border-radius:8px;font-size:14px;background:transparent;transition:all 0.15s;display:inline-block}
+  .btn-outline:hover{border-color:var(--purple);color:var(--purple) !important}
+  @media (max-width: 800px){.nav-tagline{display:none}.nav-links a:not(.btn-outline){display:none}}
+
+  /* MAIN */
+  .main{padding:64px 0 80px;position:relative;overflow:hidden}
+  .main::before{content:'';position:absolute;top:-200px;right:-200px;width:600px;height:600px;background:radial-gradient(circle,var(--purple-tint) 0%,transparent 65%);border-radius:50%;z-index:0}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;position:relative;z-index:1;align-items:start}
+  @media (max-width: 900px){.grid{grid-template-columns:1fr;gap:32px}.main{padding:40px 0 56px}}
+
+  .eyebrow{font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--purple);margin-bottom:16px}
+  h1{font-size:44px;line-height:1.08;font-weight:800;color:var(--ink);letter-spacing:-0.03em;margin:0 0 20px}
+  h1 em{font-style:normal;color:var(--purple)}
+  .lead{font-size:17px;color:var(--grey);line-height:1.6;margin:0 0 28px}
+
+  /* Bullets ventajas */
+  .benefits{display:flex;flex-direction:column;gap:14px;margin:24px 0 0}
+  .benefit{display:flex;gap:12px;align-items:flex-start}
+  .benefit-icon{width:28px;height:28px;background:var(--purple-tint);color:var(--purple);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700;flex-shrink:0}
+  .benefit-txt{font-size:14.5px;color:var(--ink-70);line-height:1.5}
+  .benefit-txt strong{color:var(--ink);font-weight:600}
+
+  /* Info aside */
+  .info-aside{background:var(--bg-alt);border:1px solid var(--border);border-radius:12px;padding:20px 22px;margin-top:32px}
+  .info-aside-label{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--grey-l);margin-bottom:10px}
+  .info-aside-item{display:flex;align-items:center;gap:10px;margin-bottom:8px;font-size:14px;color:var(--ink-70)}
+  .info-aside-item svg{color:var(--purple);flex-shrink:0}
+  .info-aside-item a{font-weight:500}
+
+  /* FORMULARIO */
+  .form-card{background:var(--bg-alt);border:1px solid var(--border);border-radius:20px;padding:40px;box-shadow:0 20px 60px -20px rgba(74,31,184,0.15)}
+  .form-title{font-size:22px;font-weight:700;color:var(--ink);margin:0 0 6px;letter-spacing:-0.01em}
+  .form-sub{font-size:14px;color:var(--grey);margin:0 0 24px}
+  .form-row{margin-bottom:18px}
+  .form-row.split{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  label{display:block;font-size:13px;font-weight:600;color:var(--ink);margin-bottom:6px}
+  label .req{color:var(--purple);margin-left:2px}
+  input, select, textarea{width:100%;padding:12px 14px;border:1px solid var(--border);border-radius:9px;font-family:inherit;font-size:14.5px;background:var(--bg);color:var(--ink);transition:border 0.15s,background 0.15s;font-weight:500}
+  input:focus, select:focus, textarea:focus{outline:none;border-color:var(--purple);background:#fff;box-shadow:0 0 0 3px rgba(74,31,184,0.08)}
+  textarea{min-height:90px;resize:vertical;font-family:inherit;line-height:1.5}
+  select{cursor:pointer;appearance:none;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'><path d='M1 1l5 5 5-5' stroke='%235C5670' stroke-width='2' fill='none' stroke-linecap='round'/></svg>");background-repeat:no-repeat;background-position:right 14px center;padding-right:36px}
+  .hp{position:absolute;left:-9999px;opacity:0;pointer-events:none}
+  .btn-submit{background:var(--ink);color:#fff;font-weight:600;padding:14px 24px;border-radius:10px;font-size:15px;border:none;cursor:pointer;transition:all 0.15s;width:100%;margin-top:8px;font-family:inherit;display:inline-flex;align-items:center;justify-content:center;gap:8px}
+  .btn-submit:hover{background:var(--purple);transform:translateY(-1px);box-shadow:0 8px 20px rgba(74,31,184,0.2)}
+  .privacy-note{font-size:12px;color:var(--grey-l);text-align:center;margin-top:14px;line-height:1.5}
+  .privacy-note a{color:var(--grey)}
+
+  /* Success message */
+  .success{display:none;background:#F0FDF4;border:1px solid #86EFAC;border-radius:12px;padding:32px;text-align:center}
+  .success.show{display:block}
+  .success-icon{width:56px;height:56px;background:#22C55E;color:#fff;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:26px;margin-bottom:14px}
+  .success h3{font-size:22px;color:#166534;margin:0 0 8px}
+  .success p{font-size:14.5px;color:#15803D;margin:0}
+
+  /* Footer */
+  .footer{background:var(--ink);color:#fff;padding:36px 0}
+  .footer-inner{text-align:center;font-family:'JetBrains Mono',monospace;font-size:12px;color:rgba(255,255,255,0.5)}
+  .footer-inner a{color:rgba(255,255,255,0.75)}
+  .colophon{margin-top:20px;padding-top:20px;border-top:1px solid rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;font-family:'JetBrains Mono',monospace;font-size:11px;color:rgba(255,255,255,0.5)}
+  .colophon-logo{background:#fff;border-radius:6px;padding:5px 10px;display:inline-flex;align-items:center}
+  .colophon-logo img{height:18px;display:block}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="./index.html" class="nav-logo">
+      <img src="./assets/wai-logo-dark.png" alt="Wai">
+      <span class="nav-tagline">
+        <span class="nav-brand">Wai Group</span>
+        <span class="nav-slogan">Operate every stay with intelligence.</span>
+      </span>
+    </a>
+    <div class="nav-links">
+      <a href="./index.html#servicios">Servicios</a>
+      <a href="./index.html#nosotros">Nosotros</a>
+      <a href="./login.html" class="btn-outline">Acceso clientes</a>
+    </div>
+  </div>
+</nav>
+
+<!-- MAIN -->
+<main class="main">
+  <div class="container">
+    <div class="grid">
+
+      <!-- Columna izquierda · info -->
+      <div>
+        <div class="eyebrow">// Agenda tu demo</div>
+        <h1>Descubre Wai en <em>una demo de 30 min</em>.</h1>
+        <p class="lead">Te mostramos cómo Wai unifica tus sistemas y genera acciones inteligentes cada día. Personalizada para tu hotel · sin compromiso.</p>
+
+        <div class="benefits">
+          <div class="benefit">
+            <div class="benefit-icon">1</div>
+            <div class="benefit-txt"><strong>Rellena el formulario</strong> · nos dices dos cosas sobre tu hotel y cuándo te viene bien.</div>
+          </div>
+          <div class="benefit">
+            <div class="benefit-icon">2</div>
+            <div class="benefit-txt"><strong>Te contactamos en menos de 24 horas</strong> · para confirmar hora y enviarte el enlace de la demo.</div>
+          </div>
+          <div class="benefit">
+            <div class="benefit-icon">3</div>
+            <div class="benefit-txt"><strong>Demo personalizada de 30 min</strong> · te enseñamos Wai con datos y casos que apliquen a tu operación.</div>
+          </div>
+        </div>
+
+        <div class="info-aside">
+          <div class="info-aside-label">También puedes contactarnos directamente</div>
+          <div class="info-aside-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <a href="mailto:wilder@waigroup.es">wilder@waigroup.es</a>
+          </div>
+          <div class="info-aside-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <a href="tel:+34659835300">+34 659 835 300</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Columna derecha · formulario -->
+      <div class="form-card">
+        <div id="form-content">
+          <h2 class="form-title">Cuéntanos de tu hotel</h2>
+          <p class="form-sub">Rellena estos datos y te contactamos.</p>
+
+          <form name="demo-request" method="POST" data-netlify="true" netlify-honeypot="bot-field" onsubmit="handleSubmit(event)">
+            <input type="hidden" name="form-name" value="demo-request">
+            <p class="hp"><label>No rellenar: <input name="bot-field"></label></p>
+
+            <div class="form-row split">
+              <div>
+                <label>Nombre completo <span class="req">*</span></label>
+                <input type="text" name="nombre" required autocomplete="name">
+              </div>
+              <div>
+                <label>Cargo <span class="req">*</span></label>
+                <input type="text" name="cargo" placeholder="ej. Director Revenue" required>
+              </div>
+            </div>
+
+            <div class="form-row split">
+              <div>
+                <label>Email corporativo <span class="req">*</span></label>
+                <input type="email" name="email" required autocomplete="email">
+              </div>
+              <div>
+                <label>Teléfono</label>
+                <input type="tel" name="telefono" autocomplete="tel">
+              </div>
+            </div>
+
+            <div class="form-row">
+              <label>Nombre del hotel o grupo <span class="req">*</span></label>
+              <input type="text" name="hotel" required>
+            </div>
+
+            <div class="form-row split">
+              <div>
+                <label>Tamaño <span class="req">*</span></label>
+                <select name="tamano" required>
+                  <option value="">Selecciona…</option>
+                  <option value="<50">Menos de 50 habitaciones</option>
+                  <option value="50-150">50 – 150 habitaciones</option>
+                  <option value="150-300">150 – 300 habitaciones</option>
+                  <option value=">300">Más de 300 habitaciones</option>
+                  <option value="cadena">Grupo · varias propiedades</option>
+                </select>
+              </div>
+              <div>
+                <label>¿Cuándo te viene bien? <span class="req">*</span></label>
+                <select name="cuando" required>
+                  <option value="">Selecciona…</option>
+                  <option value="esta-semana">Esta semana</option>
+                  <option value="proxima-semana">Próxima semana</option>
+                  <option value="este-mes">Este mes</option>
+                  <option value="sin-urgencia">Sin urgencia</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <label>Comentarios (opcional)</label>
+              <textarea name="mensaje" placeholder="Cuéntanos algo más sobre tu hotel o lo que te interesa ver…"></textarea>
+            </div>
+
+            <button type="submit" class="btn-submit">Solicitar demo →</button>
+            <p class="privacy-note">Al enviar aceptas nuestra <a href="./legal/privacidad.html">política de privacidad</a>. No compartimos tus datos.</p>
+          </form>
+        </div>
+
+        <!-- Success state -->
+        <div id="success" class="success">
+          <div class="success-icon">✓</div>
+          <h3>¡Recibido!</h3>
+          <p>Gracias por tu interés. Te contactaremos en menos de 24 horas para confirmar la demo.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      © 2026 Wai Group · <a href="./index.html">waigroup.es</a> · <a href="./legal/aviso-legal.html">Aviso legal</a> · <a href="./legal/privacidad.html">Privacidad</a>
+    </div>
+    <div class="colophon">
+      Aplicación soportada en
+      <span class="colophon-logo"><img src="./assets/logo_aws.png" alt="Amazon Web Services"></span>
+      Amazon Web Services
+    </div>
+  </div>
+</footer>
+
+<script>
+function handleSubmit(e){
+  // Netlify Forms captura el POST automáticamente en producción
+  // En local, el fetch falla · igualmente mostramos success para UX
+  e.preventDefault();
+  const form = e.target;
+  const data = new FormData(form);
+
+  fetch('/', {
+    method: 'POST',
+    headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+    body: new URLSearchParams(data).toString()
+  }).then(() => showSuccess())
+    .catch(() => showSuccess()); // igualmente muestra éxito para UX local
+}
+function showSuccess(){
+  document.getElementById('form-content').style.display = 'none';
+  document.getElementById('success').classList.add('show');
+  // scroll suave al success
+  document.getElementById('success').scrollIntoView({behavior: 'smooth', block: 'center'});
+}
+</script>
+</body>
+</html>
